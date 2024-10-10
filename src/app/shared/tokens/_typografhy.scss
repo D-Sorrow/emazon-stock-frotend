@@ -1,0 +1,68 @@
+@font-face {
+  font-family: 'Poppins';
+  src: url('/assets/fonts/Poppins-Regular.woff2') format('woff2'),
+      url('/assets/fonts/Poppins-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/assets/fonts/Poppins-Bold.woff2') format('woff2'),
+      url('/assets/fonts/Poppins-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+body, * {
+  font-family: 'Poppins', sans-serif;
+}
+
+$h1-font-size: 44px;
+$h1-line-height: 128%;
+$h1-font-weight: 500;
+
+$h2-font-size: 30px;
+$h2-line-height: 120%;
+$h2-font-weight: 500;
+
+$h3-font-size: 22px;
+$h3-line-height: 124%;
+$h3-font-weight: 600;
+
+$h4-font-size: 18px;
+$h4-line-height: 132%;
+$h4-font-weight: 700;
+
+$main_text_body_l_regular_size: 22px;
+$main_text_body_l_line_height: 144%;
+$main_text_font_weight: 400;
+
+
+$main_text_body_m_light_size: 18px;
+$main_text_body_m_line_height: 132%;
+
+
+h1 {
+  font-size: $h1-font-size;
+  line-height: $h1-line-height;
+  font-weight: $h1-font-weight;
+}
+
+h2 {
+  font-size: $h2-font-size;
+  line-height: $h2-line-height;
+  font-weight: $h2-font-weight;
+}
+
+h3 {
+  font-size: $h3-font-size;
+  line-height: $h3-line-height;
+  font-weight: $h3-font-weight;
+}
+
+h4 {
+  font-size: $h4-font-size;
+  line-height: $h4-line-height;
+  font-weight: $h4-font-weight;
+}

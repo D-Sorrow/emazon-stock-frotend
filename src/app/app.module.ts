@@ -1,16 +1,37 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ButtomComponent } from './components/atoms/buttom/buttom.component';
+import { CategoryFormComponent } from './components/molecules/category-form/category-form.component';
+import { HeaderStockComponent } from './components/organisms/header-stock/header-stock.component';
+import { TitleComponent } from './components/atoms/title/title.component';
+import { FooterStockComponent } from './components/organisms/footer-stock/footer-stock.component';
+import { AlertComponent } from './components/atoms/alert/alert.component';
+import { TableCategoryComponent } from './components/organisms/table-category/table-category.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ButtomComponent,
+    CategoryFormComponent,
+    HeaderStockComponent,
+    TitleComponent,
+    FooterStockComponent,
+    AlertComponent,
+    TableCategoryComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FontAwesomeModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
