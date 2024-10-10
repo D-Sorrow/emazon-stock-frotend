@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="card">
+        <div class="card-content">
+            <form [formGroup]="categoryForm" (ngSubmit)="submitCategory()">
+                <div class="mb">
+                    <label class="card-content__form-label">
+                        Nombre de categoría
+                    </label>
+                    <input type = "text" formControlName = "nameCategory" placeholder = "Enter category name" class="card-content__form-control">
+                    
+                </div>
+                <div class="mb">
+                    <label class="card-content__form-label">
+                        Descripción de categoría
+                    </label>
+                    <textarea formControlName = "descriptionCategory" class="card-content__form-text-area" placeholder="Enter category description"></textarea>
+                </div>
+                <app-buttom [disabled] = "categoryForm.invalid"></app-buttom>
+            </form>
+        </div> 
+    </div>
+</div> 
+
+
+    
+

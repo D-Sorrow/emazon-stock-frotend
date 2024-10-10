@@ -1,0 +1,86 @@
+@import "../../../shared/tokens/typografhy";
+@import "../../../shared/tokens/colors";
+
+.footer {
+    
+    display: flex;
+    flex-direction: column;
+    background-color: $color_black;
+    color: $color_white;
+    padding: 20px;
+    margin-top: 40px;
+
+    &__menu {
+        & .menu__list {
+            list-style-type: none;
+            padding: 0;
+    
+            .list__item {
+            margin-bottom: 10px;
+            
+                a {
+                    text-decoration: none;
+                    color: white;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    &__contact {
+        margin-top: 30px;
+    
+        .contact__phone,
+        .contact__email {
+            font-weight: bold;
+        }
+    
+        .contact__address,
+        .contact__hours {
+            margin: 5px 0;
+        }
+    
+        .footer__social-icons {
+            display: flex;
+            gap: 10px;
+            margin-top: 16px;
+            .social-icons__img {
+                padding: 16px;
+                color: $color_white;
+            }
+        }
+    }
+
+    &__bottom {
+        margin-top: 20px;
+    
+        .bottom__divider {
+            border: none;
+            height: 1px;
+            background-color: #ABA7AF;
+            margin: 10px 0;
+        }
+    
+        .bottom__copyright,
+        .bottom__privacy-policy {
+            font-size: 12px;
+            color: #ABA7AF;
+        }
+    
+        .bottom__privacy-policy {
+            text-decoration: none;
+        }
+    }
+    
+    &__logo {
+        margin-top: 15px;
+        text-align: center;
+    
+        .logo__logo-img {
+            width: 100px;
+        }
+    }
+    
+}
+
+
