@@ -1,5 +1,6 @@
-<app-header-stock></app-header-stock>
+<app-header-stock (toggleSidenav)="onToggleSidenav()"></app-header-stock>
+<app-side-nav [isOpen]="isSidenavOpen"></app-side-nav>
 <app-title></app-title>
 <app-category-form></app-category-form>
-<app-table-category [categories] = "category" *ngFor="let category of categories"></app-table-category>
+<app-table-category></app-table-category>
 <app-footer-stock></app-footer-stock>

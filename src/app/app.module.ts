@@ -13,6 +13,7 @@ import { TitleComponent } from './components/atoms/title/title.component';
 import { FooterStockComponent } from './components/organisms/footer-stock/footer-stock.component';
 import { AlertComponent } from './components/atoms/alert/alert.component';
 import { TableCategoryComponent } from './components/organisms/table-category/table-category.component';
+import { SideNavComponent } from './components/organisms/side-nav/side-nav.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { TableCategoryComponent } from './components/organisms/table-category/ta
     FooterStockComponent,
     AlertComponent,
     TableCategoryComponent,
+    SideNavComponent,
   ],
   imports: [
     BrowserModule,

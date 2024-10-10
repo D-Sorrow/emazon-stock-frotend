@@ -1,0 +1,52 @@
+@import '../../../shared/tokens/colors';
+@import '../../../shared/tokens/typografhy';
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+}
+
+.table {
+    width: 100%;
+    padding: 16px;
+    margin-top: 33px;
+    border-collapse: collapse;
+    font-family: 'Arial', sans-serif;
+
+    &__header {
+        background-color: #f5f5f5;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    &__row {
+        border-bottom: 1px solid #e0e0e0;
+
+        &--header {
+            border-bottom: 2px solid #d0d0d0;
+        }
+
+        &:nth-child(even) {
+            background-color: #f9f9f9; // Alterna los colores de las filas
+        }
+    }
+
+    &__header-cell, &__cell {
+        padding: 12px;
+        text-align: left;
+        font-size: 14px;
+        color: #333;
+    }
+
+    &__header-cell {
+        color: #555;
+        font-size: 16px;
+        padding-bottom: 8px;
+    }
+
+    &__cell {
+        color: #777;
+    }
+}
