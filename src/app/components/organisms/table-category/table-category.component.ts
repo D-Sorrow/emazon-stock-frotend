@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CategoryService } from '../../../category.service';
+import { CategoryService } from '../../../shared/service/category.service';
 import { ICategory } from 'src/app/core/models/ICategory';
-import { ICategoryResponse } from '../../../core/models/IPageResponser';
+import { IPageResponse } from '../../../core/models/IPageResponse';
 
 @Component({
   selector: 'app-table-category',
@@ -18,8 +18,8 @@ export class TableCategoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.categoryService.getAllCategories().subscribe(
-      (data: ICategoryResponse) => {
-        this.categories = data.collection; // Almacenar las categorías obtenidas
+      (data: IPageResponse<ICategory>) => {
+        this.categories = data.collection; 
       }
     );
   }

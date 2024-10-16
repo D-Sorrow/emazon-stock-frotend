@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="card">
+        <div class="card-content">
+            <form [formGroup]="brandForm" (ngSubmit)="submitCategory()">
+                <div class="mb">
+                    <label class="card-content__form-label">
+                        Nombre de la marca
+                    </label>
+                    <input type = "text" formControlName = "brandName" placeholder = "Enter brand name" class="card-content__form-control">
+                    
+                </div>
+                <div class="mb">
+                    <label class="card-content__form-label">
+                        Descripción de la marca
+                    </label>
+                    <textarea formControlName = "brandDescription" class="card-content__form-text-area" placeholder="Enter brand description"></textarea>
+                </div>
+                <app-buttom [textButton]="textButton" [disabled] = "brandForm.invalid"></app-buttom>
+            </form>
+        </div> 
+    </div>
+</div> 
+
+
+    

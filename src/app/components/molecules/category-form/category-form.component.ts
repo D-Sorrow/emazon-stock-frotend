@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ICategory } from 'src/app/core/models/ICategory';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import {CategoryService} from '../../../category.service';
+import {CategoryService} from '../../../shared/service/category.service';
 
 @Component({
   selector: 'app-category-form',
@@ -9,6 +8,8 @@ import {CategoryService} from '../../../category.service';
   styleUrls: ['./category-form.component.scss'],
 })
 export class CategoryFormComponent implements OnInit {  
+
+  @Input() textButton: string = '';
 
   constructor(private fb: FormBuilder, private categoryService: CategoryService ) { }
 

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-side-nav',
@@ -9,9 +9,23 @@ export class SideNavComponent implements OnInit {
 
   @Input() isOpen: boolean = false;
 
+  @Output() sectionSelected = new EventEmitter<string>();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  selectCategories() {
+    this.sectionSelected.emit('categories'); 
+  }
+
+  selectBrands() {
+    this.sectionSelected.emit('brands'); 
+  }
+
+  selectArticles() {
+    this.sectionSelected.emit('articles');
   }
 
 }

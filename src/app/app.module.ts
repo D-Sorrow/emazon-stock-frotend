@@ -14,6 +14,8 @@ import { FooterStockComponent } from './components/organisms/footer-stock/footer
 import { AlertComponent } from './components/atoms/alert/alert.component';
 import { TableCategoryComponent } from './components/organisms/table-category/table-category.component';
 import { SideNavComponent } from './components/organisms/side-nav/side-nav.component';
+import { TableBrandComponent } from './components/organisms/table-brand/table-brand.component';
+import { BrandFormComponent } from './components/molecules/brand-form/brand-form.component';
 
 
 @NgModule({
@@ -27,6 +29,8 @@ import { SideNavComponent } from './components/organisms/side-nav/side-nav.compo
     AlertComponent,
     TableCategoryComponent,
     SideNavComponent,
+    TableBrandComponent,
+    BrandFormComponent,
   ],
   imports: [
     BrowserModule,

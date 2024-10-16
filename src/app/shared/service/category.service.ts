@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams} from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ICategory } from './core/models/ICategory';
-import { ICategoryResponse } from './core/models/IPageResponser';
+import { ICategory } from '../../core/models/ICategory';
+import { IPageResponse } from '../../core/models/IPageResponse';
 
 
 @Injectable({
@@ -26,6 +26,6 @@ export class CategoryService {
       .set('page', 0)
       .set('size', 5)
       .set('sortDirection', 'DeSC');
-    return this.http.get<ICategoryResponse>(this.apiStockUrl + "getAllCategory", {params});
+    return this.http.get<IPageResponse<ICategory>>(this.apiStockUrl + "getAllCategory", {params});
   }
 }

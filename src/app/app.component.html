@@ -1,6 +1,17 @@
-<app-header-stock (toggleSidenav)="onToggleSidenav()"></app-header-stock>
-<app-side-nav [isOpen]="isSidenavOpen"></app-side-nav>
-<app-title></app-title>
-<app-category-form></app-category-form>
-<app-table-category></app-table-category>
+<app-header-stock (toggleSidenav)="onToggleSidenav()" ></app-header-stock>
+<app-side-nav [isOpen]="isSidenavOpen"  (sectionSelected)="onSectionSelected($event)"></app-side-nav>
+<div class="content" *ngIf="selectedSection === 'categories'">
+    <app-title [title]="'Añade una Categoría'"></app-title>
+    <app-category-form [textButton] = "'Enviar categoría'" ></app-category-form>
+    <app-title [title]="'Lista de Categorías'"></app-title>
+    <app-table-category></app-table-category>
+</div>
+
+<div class="content" *ngIf="selectedSection === 'brands'">
+    <app-title [title]="'Añade una Marca'"></app-title>
+    <app-brand-form [textButton] = "'Enviar marca'"></app-brand-form>
+    <app-title [title]="'Lista de Marcas'"></app-title>
+    <app-table-brand></app-table-brand>
+</div>
+
 <app-footer-stock></app-footer-stock>

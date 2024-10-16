@@ -10,14 +10,21 @@ export class AppComponent {
   
   isSidenavOpen: boolean = false;
 
+  selectedSection: string = 'categories';
+
+  constructor(){}
+
   onToggleSidenav() {
     this.isSidenavOpen = !this.isSidenavOpen;
   }
 
-  constructor(){}
+  onSectionSelected(section: string){
+    this.selectedSection = section;
+  }
 
   ngOnInit(): void {
   }
+
 
   title = 'com.emazon.stock';
 }
