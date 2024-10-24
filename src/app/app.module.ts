@@ -16,6 +16,7 @@ import { TableCategoryComponent } from './components/organisms/table-category/ta
 import { SideNavComponent } from './components/organisms/side-nav/side-nav.component';
 import { TableBrandComponent } from './components/organisms/table-brand/table-brand.component';
 import { BrandFormComponent } from './components/molecules/brand-form/brand-form.component';
+import { PaginationComponent } from './components/molecules/pagination/pagination.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { BrandFormComponent } from './components/molecules/brand-form/brand-form
     SideNavComponent,
     TableBrandComponent,
     BrandFormComponent,
+    PaginationComponent,
   ],
   imports: [
     BrowserModule,

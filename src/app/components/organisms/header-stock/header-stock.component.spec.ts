@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'; 
 import { HeaderStockComponent } from './header-stock.component';
 
 describe('HeaderStockComponent', () => {
@@ -8,7 +8,8 @@ describe('HeaderStockComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeaderStockComponent ]
+      declarations: [ HeaderStockComponent ],
+      imports: [ FontAwesomeModule ] 
     })
     .compileComponents();
 
@@ -19,5 +20,13 @@ describe('HeaderStockComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should emit toggleSidenav event when onToggleSidenav is called', () => {
+    const spy = jest.spyOn(component.toggleSidenav, 'emit');
+
+    component.onToggleSidenav();
+
+    expect(spy).toHaveBeenCalled();
   });
 });

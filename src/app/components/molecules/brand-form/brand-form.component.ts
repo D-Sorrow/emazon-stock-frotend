@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { BrandService } from '../../../shared/service/brand/brand.service';
+import { IBrand } from 'src/app/core/models/IBrand';
 
 @Component({
   selector: 'app-brand-form',
@@ -22,7 +23,12 @@ export class BrandFormComponent implements OnInit {
   get descriptionBrand() { return this.brandForm.get('brandDescription') as FormControl; }
 
   submitCategory(){
-    this.brandService.addBrand(this.brandForm.value)
+    const brand: IBrand = {
+      brandName: this.nameBrand.value,
+      brandDescription: this.descriptionBrand.value,
+    };
+
+    this.brandService.addBrand(brand)
     .subscribe(response => {
       console.log(response);
     });

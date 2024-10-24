@@ -12,6 +12,8 @@ export class AppComponent {
 
   selectedSection: string = 'categories';
 
+  modalSwitch: boolean = false;
+
   constructor(){}
 
   onToggleSidenav() {
@@ -23,6 +25,14 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
+  }
+
+  openModal() {
+    this.modalSwitch = true;
+  }
+
+  closeModal() {
+    this.modalSwitch = false;
   }
 
 

@@ -13,5 +13,11 @@
             </tr>
         </tbody>
     </table>
+    <app-pagination 
+        (nextPagination)="nextPage()" 
+        (previousPagination)="previousPage()"
+        (sortPagination)  = "sortTable()">
+        
+    </app-pagination>
 </div>
 

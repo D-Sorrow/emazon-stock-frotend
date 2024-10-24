@@ -1,0 +1,24 @@
+@import '../../../shared/tokens/colors';
+@import '../../../shared/tokens/typografhy';
+
+.container{
+    display: flex;
+    margin-top: 4px;
+    padding: 10px;
+    justify-content: right;
+}
+
+.btn-back-nav{
+    font-size: medium;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    margin-left:12px;
+    background-color: $color_purple;
+    padding: 5px 12px;
+    color: $color_white;
+    border-radius: 4px;
+    &:hover {
+        background-color: $color_purple_hover;
+    }
+}

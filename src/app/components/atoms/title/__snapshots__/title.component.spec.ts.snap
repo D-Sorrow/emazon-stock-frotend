@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TitleComponent Match with the title component 1`] = `
+<div
+  id="root1"
+>
+  <div
+    class="title"
+  >
+    <h1>
+      
+    </h1>
+  </div>
+</div>
+`;

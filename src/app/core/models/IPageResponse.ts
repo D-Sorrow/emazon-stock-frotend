@@ -3,4 +3,5 @@ export interface IPageResponse<T> {
     pages: number;
     sortBy: string;
     collection: T[];
+    pageSize: number;
 }

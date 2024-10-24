@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'; 
 import { FooterStockComponent } from './footer-stock.component';
 
 describe('FooterStockComponent', () => {
@@ -8,7 +8,8 @@ describe('FooterStockComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FooterStockComponent ]
+      declarations: [ FooterStockComponent ],
+      imports: [ FontAwesomeModule ]
     })
     .compileComponents();
 

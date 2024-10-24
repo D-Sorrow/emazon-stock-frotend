@@ -21,11 +21,11 @@ export class BrandService {
     return this.http.post<any>(this.apiStockUrl + "addBrand", brandData);
   }
 
-  getAllBrands(){
+  getAllBrands(page: number, sort: string): Observable<IPageResponse<IBrand>>{
     let params = new HttpParams()
-      .set('page', 0)
+      .set('page', page)
       .set('size', 5)
-      .set('sortDirection', 'DeSC');
+      .set('sortDirection', sort);
 
       return this.http.get<IPageResponse<IBrand>>(this.apiStockUrl + "getAllBrands", {params});
   }

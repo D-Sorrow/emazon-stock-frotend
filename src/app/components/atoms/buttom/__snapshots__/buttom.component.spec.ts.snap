@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtomComponent Matches with the component 1`] = `
+<div
+  id="root1"
+>
+  <div
+    class="btn-container"
+  >
+    <button
+      class="btn-container__btn"
+    >
+      <span
+        class="btn__text"
+      >
+        
+      </span>
+    </button>
+  </div>
+</div>
+`;

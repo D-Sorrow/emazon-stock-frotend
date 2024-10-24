@@ -2,24 +2,24 @@
 @import "../../../shared/tokens/typografhy";
 
 .container{
-    display: flex;
+    ///display: flex;
     justify-content: center;
     align-items: center;
 }
 .mb{
     margin-bottom: 16px;
 }
-.card{
-    width: 100%; 
+.card{   
+    background-color: rgb(255, 255, 255);
+    position: relative;
     padding: 16px;
     border-radius: 6px;
     border: 1px solid $color_spacer-light;
-    margin: 0px 16px;
     box-shadow: 1px 10px 10px -10px black ;
     .card-content {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        //gap: 10px;
 
         &__form-label {
             display: block;

@@ -5,6 +5,7 @@ import { ButtomComponent } from './buttom.component';
 describe('ButtomComponent', () => {
   let component: ButtomComponent;
   let fixture: ComponentFixture<ButtomComponent>;
+  let compiled: HTMLElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -15,9 +16,14 @@ describe('ButtomComponent', () => {
     fixture = TestBed.createComponent(ButtomComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    compiled = fixture.nativeElement;
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('Matches with the component', () => {
+    expect(compiled).toMatchSnapshot();
   });
 });

@@ -3,8 +3,11 @@
 
 .title{
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
     margin: 16px 0px;
+    
+    h1{
+
+        font-weight: bold;
+    }
 }
