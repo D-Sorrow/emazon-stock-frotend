@@ -1,0 +1,10 @@
+<details class="category-selector">
+    <summary class="category-selector__summary">Selecciona las categorías</summary>
+    <ul class="category-selector__list">
+        <li class="category-selector__item" *ngFor="let category of categories">
+            <label class="category-selector__label">
+                <input type="checkbox" name="fc" value="red" checked class="category-selector__checkbox" />{{ category.nameCategory }}
+            </label>
+        </li>
+    </ul>
+</details>

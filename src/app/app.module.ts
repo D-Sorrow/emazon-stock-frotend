@@ -17,6 +17,8 @@ import { SideNavComponent } from './components/organisms/side-nav/side-nav.compo
 import { TableBrandComponent } from './components/organisms/table-brand/table-brand.component';
 import { BrandFormComponent } from './components/molecules/brand-form/brand-form.component';
 import { PaginationComponent } from './components/molecules/pagination/pagination.component';
+import { MultiSelectComponent } from './components/atoms/multi-select/multi-select/multi-select.component';
+import { ArticleFormComponent } from './components/molecules/article-form/article-form/article-form.component';
 
 
 @NgModule({
@@ -33,6 +35,8 @@ import { PaginationComponent } from './components/molecules/pagination/paginatio
     TableBrandComponent,
     BrandFormComponent,
     PaginationComponent,
+    MultiSelectComponent,
+    ArticleFormComponent,
   ],
   imports: [
     BrowserModule,

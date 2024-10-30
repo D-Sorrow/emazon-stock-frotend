@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="card">
+        <div class="card-content">
+            <form [formGroup]="articleForm" (ngSubmit)="submitArticle()">
+                <div class="mb">
+                    <label class="card-content__form-label">
+                        Nombre del artículo
+                    </label>
+                    <input type = "text" formControlName = "articleName" placeholder = "Enter article name" class="card-content__form-control">
+                    
+                </div>
+                <div class="mb">
+                    <label class="card-content__form-label">
+                        Descripción del artículo
+                    </label>
+                    <textarea formControlName = "articleDescription" class="card-content__form-text-area" placeholder="Enter article description"></textarea>
+                </div>
+                <div class="mb">
+                    <label class="card-content__form-label">
+                        Cantidad del artículo
+                    </label>
+                    <input type = "number" formControlName = "articleQuantity" placeholder = "Enter article quantity" class="card-content__form-control">
+                </div>
+                <div class="mb">
+                    <label class="card-content__form-label">
+                        Precio del artículo
+                    </label>
+                    <input type = "number" formControlName = "articleQuantity" placeholder = "Enter article quantity" class="card-content__form-control">
+                </div>
+                <div class="mb">
+                    <app-multi-select></app-multi-select>
+                </div>
+                <app-buttom [textButton]="textButton" [disabled] = "articleForm.invalid"></app-buttom>
+            </form>
+        </div> 
+    </div>
+</div> 
+
+
+    
