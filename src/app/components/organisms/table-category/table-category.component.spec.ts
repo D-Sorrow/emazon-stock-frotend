@@ -32,7 +32,7 @@ describe('TableCategoryComponent', () => {
   it('should create', () => {
     // Simulamos la respuesta del método getAllCategories para devolver un observable con datos
     const mockResponse: IPageResponse<ICategory> = {
-      collection: [{ nameCategory: 'Category 1', descriptionCategory: 'Description 1' }],
+      collection: [{nameCategory: 'Category 1', descriptionCategory: 'Description 1' }],
       pageSize: 5,
       size: 0,
       pages: 0,

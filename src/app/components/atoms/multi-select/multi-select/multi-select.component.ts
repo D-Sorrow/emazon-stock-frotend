@@ -1,5 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { ICategory } from 'src/app/core/models/ICategory';
+import { IBrand } from 'src/app/core/models/IBrand';
+
+
 
 @Component({
   selector: 'app-multi-select',
@@ -8,36 +11,53 @@ import { ICategory } from 'src/app/core/models/ICategory';
 })
 export class MultiSelectComponent implements OnInit {
 
-  categories: ICategory[] = [
-    { nameCategory: '', descriptionCategory: ''},
-    { nameCategory: '', descriptionCategory: '' },
-    { nameCategory: '', descriptionCategory: '' },
-    { nameCategory: '', descriptionCategory: '' }
-    // Agrega más categorías según sea necesario
-  ];
+
+  @Input() titleSelect: String = '';
     
-  
+  @Input() categories: ICategory [] = [];
+
+  @Output() scrollDown = new EventEmitter<void>();
+
+  @Output() selectedCategoriesChange = new EventEmitter<number[]>();
+
+  selectedCategories: number[] = [];
+
+
+  blockCheckboxCategory(categoryId: number): boolean {
+    return this.selectedCategories.length == 3 && !this.selectedCategories.includes(categoryId);
+  }
+
+  scrollDownMethod(event: Event) {
+    const element = event.target as HTMLElement;
+    let scrollHeight = element.scrollHeight;
+    let scrollTop = element.scrollTop;
+    let clientHeight = element.clientHeight;
+
+    let scrollPosition = scrollHeight - (scrollTop + clientHeight); 
+
+    if (Math.abs(scrollPosition) < 1) {
+      this.scrollDown.emit();
+    }
+    
+  }
+
+  getValueToCategory(idCategory: number) {
+
+    if(this.selectedCategories.includes(idCategory)) {
+
+      const index = this.selectedCategories.indexOf(idCategory);
+      this.selectedCategories.splice(index, 1);
+    } else {
+      this.selectedCategories.push(idCategory);
+    }
+    console.log('Array completo:', this.selectedCategories);
+  }
+
 
   constructor() {
   }
 
   ngOnInit(): void {
-  }
-
-  selectedCategories: ICategory[] = [];
-
-  dropdownOpen = false;
-
-  toggleDropdown() {
-    this.dropdownOpen = !this.dropdownOpen;
-  }
-
-  onCategoryChange(category: ICategory, isChecked: boolean) {
-    if (isChecked) {
-      this.selectedCategories.push(category);
-    } else {
-      this.selectedCategories = this.selectedCategories.filter(cat => cat.idCategory !== category.idCategory);
-    }
   }
 
 }

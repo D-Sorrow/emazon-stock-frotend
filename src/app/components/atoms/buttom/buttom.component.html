@@ -1,5 +1,5 @@
 <div class="btn-container">
-    <button class="btn-container__btn" [ngClass]="buttonClass">
+    <button class="btn-container__btn" [ngClass]="buttonClass" [disabled]="isActived()">
       <span class="btn__text">{{textButton}}</span>
     </button>
   </div>

@@ -25,12 +25,15 @@
                     <label class="card-content__form-label">
                         Precio del artículo
                     </label>
-                    <input type = "number" formControlName = "articleQuantity" placeholder = "Enter article quantity" class="card-content__form-control">
+                    <input type = "number" formControlName = "articlePrice" placeholder = "Enter article quantity" class="card-content__form-control">
                 </div>
                 <div class="mb">
-                    <app-multi-select></app-multi-select>
+                    <app-multi-select [titleSelect]="'Selecciona las categorías'" [categories] = "categories" (scrollDown)="onScrollDownCategory()" (selectedCategoriesChange)="onSelectedCategoriesChange($event)"></app-multi-select>
                 </div>
-                <app-buttom [textButton]="textButton" [disabled] = "articleForm.invalid"></app-buttom>
+                <div class="mb">
+                    <app-multi-select-brand [titleSelect]="'Selecciona la marca'" [brands]= "brands" (scrollDown) = "onScrollDownBrand()"  (selectedBrandsChange) = "onSelectedBrandsChange($event) "></app-multi-select-brand>
+                </div>
+                <app-buttom [textButton]="textButton"></app-buttom>
             </form>
         </div> 
     </div>

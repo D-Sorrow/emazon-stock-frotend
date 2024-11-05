@@ -17,4 +17,8 @@ export class ButtomComponent implements OnInit {
     
   }
 
+  isActived(){
+    return this.disabled;
+  }
+
 }

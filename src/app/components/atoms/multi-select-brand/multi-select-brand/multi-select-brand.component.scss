@@ -1,0 +1,39 @@
+@import "../../../../shared/tokens/colors";
+@import "../../../../shared/tokens/typografhy";
+
+.brand-selector{
+    width: 100%; 
+    padding: 16px;
+    border-radius: 6px;
+    border: 1px solid $color_spacer-light;
+    box-shadow: 1px 10px 10px -10px black ;
+    cursor: pointer;
+
+    &__item{
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+        border-bottom: 1px solid $color_border;
+    }
+
+    &__label {
+        display: flex;
+        align-items: center;
+    }
+
+    &__label
+
+    &__checkbox {
+        width: 16px; 
+        height: 16px;
+        margin-right: 10px; 
+        background-color: $color_purple;
+    }
+
+}
+.brand-selector__list {
+    max-height: 150px; 
+    overflow-y: auto; 
+}

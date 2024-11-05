@@ -19,6 +19,7 @@ import { BrandFormComponent } from './components/molecules/brand-form/brand-form
 import { PaginationComponent } from './components/molecules/pagination/pagination.component';
 import { MultiSelectComponent } from './components/atoms/multi-select/multi-select/multi-select.component';
 import { ArticleFormComponent } from './components/molecules/article-form/article-form/article-form.component';
+import { MultiSelectBrandComponent } from './components/atoms/multi-select-brand/multi-select-brand/multi-select-brand.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { ArticleFormComponent } from './components/molecules/article-form/articl
     PaginationComponent,
     MultiSelectComponent,
     ArticleFormComponent,
+    MultiSelectBrandComponent,
   ],
   imports: [
     BrowserModule,
