@@ -1,6 +1,5 @@
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { ICategory } from 'src/app/core/models/ICategory';
-import { IBrand } from 'src/app/core/models/IBrand';
 
 
 
@@ -43,6 +42,7 @@ export class MultiSelectComponent implements OnInit {
 
   getValueToCategory(idCategory: number) {
 
+    
     if(this.selectedCategories.includes(idCategory)) {
 
       const index = this.selectedCategories.indexOf(idCategory);
@@ -50,7 +50,7 @@ export class MultiSelectComponent implements OnInit {
     } else {
       this.selectedCategories.push(idCategory);
     }
-    console.log('Array completo:', this.selectedCategories);
+    this.selectedCategoriesChange.emit(this.selectedCategories);
   }
 
 

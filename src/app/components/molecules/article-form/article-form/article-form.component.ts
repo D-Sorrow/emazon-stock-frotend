@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { ArticleService } from '../../../../shared/service/article/article.service';
 import { CategoryService } from '../../../../shared/service/category/category.service';
-import { BrandService } from 'src/app/shared/service/brand/brand.service';
+import { BrandService } from '../../../../shared/service/brand/brand.service';
 import { IArticle } from'src/app/core/models/IArticle';
 import { IBrand } from 'src/app/core/models/IBrand';
 import { ICategory } from'src/app/core/models/ICategory';

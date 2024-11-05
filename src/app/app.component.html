@@ -3,17 +3,17 @@
 <div class="container">
     <div class="content" *ngIf="selectedSection === 'categories'">
         <app-title [title]="'Lista de Categorías'"></app-title>
-        <div class="container__button--newCategory">
+        <!-- <div class="container__button--newCategory">
             <app-buttom (click)="openModal()" [textButton]="'+'"></app-buttom>
-        </div>
+        </div> -->
         <app-table-category></app-table-category>
-        <div class="modal" *ngIf="modalSwitch">
-            <!-- <app-title [title]="'Añade una Categoría'"></app-title> -->
-            <div>
-                <app-buttom class="close" (click)="closeModal()" [textButton]="'X'"></app-buttom>
-            </div>
-            <app-category-form [textButton] = "'Enviar categoría'" ></app-category-form>
-        </div>
+    
+        <app-title [title]="'Añade una Categoría'"></app-title>
+        <!-- <div>
+            <app-buttom class="close" (click)="closeModal()" [textButton]="'X'"></app-buttom>
+        </div> -->
+        <app-category-form [textButton] = "'Enviar categoría'" ></app-category-form>
+
     </div>
     
     <div class="content" *ngIf="selectedSection === 'brands'">
@@ -22,6 +22,10 @@
         <app-title [title]="'Lista de Marcas'"></app-title>
         <app-table-brand></app-table-brand>
     </div>
-    <app-article-form [textButton] = "'Enviar artículo'"></app-article-form>
+    <div class="content" *ngIf="selectedSection === 'articles'">
+        <app-title [title]="'Añade un Artículo'"></app-title>
+        <app-article-form [textButton] = "'Enviar artículo'"></app-article-form>
+    </div>
+    
 </div>
 <app-footer-stock></app-footer-stock>

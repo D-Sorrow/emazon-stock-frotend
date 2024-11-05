@@ -50,7 +50,6 @@ export class MultiSelectBrandComponent implements OnInit {
     } else {
       this.selectedBrands.push(brandId);
     }
-    console.log('Array completo:', this.selectedBrands);
   }
 
 }

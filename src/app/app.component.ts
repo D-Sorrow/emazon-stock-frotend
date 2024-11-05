@@ -27,13 +27,13 @@ export class AppComponent {
   ngOnInit(): void {
   }
 
-  openModal() {
-    this.modalSwitch = true;
-  }
+  // openModal() {
+  //   this.modalSwitch = true;
+  // }
 
-  closeModal() {
-    this.modalSwitch = false;
-  }
+  // closeModal() {
+  //   this.modalSwitch = false;
+  // }
 
 
   title = 'com.emazon.stock';
