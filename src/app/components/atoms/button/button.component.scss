@@ -1,0 +1,84 @@
+@import '../../../shared/tokens/colors';
+
+.button{
+    padding: 0.4rem;
+    width: 15rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0.5rem 0 0.5rem 0;
+
+    &--primary {
+        background-color: $color_purple;
+        color: $color_white;
+    
+    }
+
+    &:hover {
+        background-color: $color_purple_hover;
+    }
+
+    &--icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        width: 3.8rem;
+        height: 3.8rem;
+    
+        fa-icon {
+            font-size: 1.6rem;
+        }
+    }
+    
+    &--SMALL {
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+    &--XS {
+        padding: 0;
+        font-size: 0.8rem;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    
+    &--BIG{
+    width: 100%;
+    height: 4rem;
+    padding: 1rem;
+    font-size: 1.2rem;
+    }
+
+}
+@media (min-width: 768px) {
+    .button {
+        padding: 1.2rem;
+        width: 10.9rem;
+        height: 4rem;
+        font-size: 1.2rem;
+
+        &--XS {
+            padding: 0;
+            font-size: 0.8rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            
+        }
+        
+        &--SMALL {
+            width: 2.5rem;
+            height: 2.5rem;
+            padding: 0;
+        }
+        &--BIG{
+        //width: auto;
+        height: 4rem;
+        padding: 1rem;
+        font-size: 1.2rem;
+        }
+    
+    }
+}

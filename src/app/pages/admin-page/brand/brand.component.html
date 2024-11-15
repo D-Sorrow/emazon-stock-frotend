@@ -1,0 +1,10 @@
+<div class="container">
+    <app-form class="container__form" 
+    [fields]="fields"
+    [formType]= "formType"
+    (formSubmitted)="saveData($event)"
+    >
+    </app-form>
+    <app-table [items]="brands"></app-table>
+    <app-pagination-bar [pageSize]="pagesSize" (nextPage)="nextPage()" (prevPage)="previousPage()"></app-pagination-bar>
+</div>

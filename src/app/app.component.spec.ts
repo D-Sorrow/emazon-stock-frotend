@@ -1,15 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HeaderStockComponent } from './components/organisms/header-stock/header-stock.component';
-import { SideNavComponent } from './components/organisms/side-nav/side-nav.component';
-import { TitleComponent } from './components/atoms/title/title.component';
-import { CategoryFormComponent } from './components/molecules/category-form/category-form.component';
-import { BrandFormComponent } from './components/molecules/brand-form/brand-form.component';
-import { TableBrandComponent } from './components/organisms/table-brand/table-brand.component';
-import { TableCategoryComponent } from './components/organisms/table-category/table-category.component';
-import { ArticleFormComponent } from './components/molecules/article-form/article-form/article-form.component';
-import { ButtomComponent } from './components/atoms/buttom/buttom.component';
-import { FooterStockComponent } from './components/organisms/footer-stock/footer-stock.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -26,9 +16,7 @@ describe('AppComponent', () => {
         RouterTestingModule, FontAwesomeModule, HttpClientModule, ReactiveFormsModule 
       ],
       declarations: [
-        AppComponent, HeaderStockComponent, FooterStockComponent, SideNavComponent,
-        TitleComponent, ButtomComponent, TableBrandComponent, TableCategoryComponent,
-        CategoryFormComponent, BrandFormComponent, ArticleFormComponent
+        AppComponent,
       ],
       providers: [FormBuilder],
     }).compileComponents();
@@ -41,12 +29,7 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should toggle sidenav state when onToggleSidenav is called', () => {
-    expect(app.isSidenavOpen).toBe(false); // Estado inicial
-    app.onToggleSidenav();
-    expect(app.isSidenavOpen).toBe;  // Después de llamar al método
-    app.onToggleSidenav();
-    expect(app.isSidenavOpen).toBe(false); // Alternar nuevamente
+  it('should have title initialized to "com.emazon.stock"', () => {
+    expect(app.title).toBe('com.emazon.stock');
   });
-
 });

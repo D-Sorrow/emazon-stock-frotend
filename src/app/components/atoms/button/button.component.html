@@ -1,0 +1,15 @@
+<button
+    type="button"
+    class="button button--{{ type }} button--{{ size }}"
+    [disabled]="disabled"
+    (click)="onClick()"
+>
+    <ng-container *ngIf="icon; else labelContent">
+        <fa-icon [icon]="icon" class="fa-2x"></fa-icon>
+        
+    </ng-container>
+
+    <ng-template #labelContent>
+        {{ labelButton }}
+    </ng-template>
+</button>

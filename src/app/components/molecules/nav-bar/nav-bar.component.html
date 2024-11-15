@@ -1,0 +1,12 @@
+
+<div class="nav-bar">
+    <app-button class="nav-bar__button-menu" [icon]="icon" [size]="sizeButton" (click)="toggleMenu()"></app-button>
+    <nav class="nav-bar__menu" [class.open]="isMenuOpen">
+        <ul class="menu__option">
+            <li><a class="menu__option" href="#">Opción 1</a></li>
+            <li><a href="#">Opción 2</a></li>
+            <li><a href="#">Opción 3</a></li>
+        </ul>
+    </nav>
+</div>
+
