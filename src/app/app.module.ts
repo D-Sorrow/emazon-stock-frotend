@@ -1,51 +1,33 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ButtomComponent } from './components/atoms/buttom/buttom.component';
-import { CategoryFormComponent } from './components/molecules/category-form/category-form.component';
-import { HeaderStockComponent } from './components/organisms/header-stock/header-stock.component';
-import { TitleComponent } from './components/atoms/title/title.component';
-import { FooterStockComponent } from './components/organisms/footer-stock/footer-stock.component';
-import { AlertComponent } from './components/atoms/alert/alert.component';
-import { TableCategoryComponent } from './components/organisms/table-category/table-category.component';
-import { SideNavComponent } from './components/organisms/side-nav/side-nav.component';
-import { TableBrandComponent } from './components/organisms/table-brand/table-brand.component';
-import { BrandFormComponent } from './components/molecules/brand-form/brand-form.component';
-import { PaginationComponent } from './components/molecules/pagination/pagination.component';
-import { MultiSelectComponent } from './components/atoms/multi-select/multi-select/multi-select.component';
-import { ArticleFormComponent } from './components/molecules/article-form/article-form/article-form.component';
-import { MultiSelectBrandComponent } from './components/atoms/multi-select-brand/multi-select-brand/multi-select-brand.component';
+import { SharedModule } from './shared/shared.module';
+import { AtomsModule } from './components/atoms/atoms.module';
+import { MoleculesModule } from './components/molecules/molecules.module';
+import { OrganismsModule } from './components/organisms/organisms.module';
+import { AdminPageModule } from './pages/admin-page/admin-page.module';
+import { TemplateModule } from './template/template.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ButtomComponent,
-    CategoryFormComponent,
-    HeaderStockComponent,
-    TitleComponent,
-    FooterStockComponent,
-    AlertComponent,
-    TableCategoryComponent,
-    SideNavComponent,
-    TableBrandComponent,
-    BrandFormComponent,
-    PaginationComponent,
-    MultiSelectComponent,
-    ArticleFormComponent,
-    MultiSelectBrandComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    FontAwesomeModule,
+    
     HttpClientModule,
+    SharedModule,
+    AtomsModule,
+    MoleculesModule,
+    //OrganismsModule,
+    AdminPageModule,
+    //TemplateModule
+    AppRoutingModule,
+
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

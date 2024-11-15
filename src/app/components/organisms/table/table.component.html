@@ -1,0 +1,15 @@
+
+<table class="table">
+    <thead class="table__header">
+        <tr class="table__header-row">
+            <th class="table__header-cell">Nombre</th>
+            <th class="table__header-cell">Descripción</th>
+        </tr>
+    </thead>
+    <tbody class="table__body">
+        <tr *ngFor="let data of items">
+            <td class="table__cell">{{data.name}}</td>
+                <td class="table__cell">{{data.description}}</td>
+        </tr>
+    </tbody>
+</table>

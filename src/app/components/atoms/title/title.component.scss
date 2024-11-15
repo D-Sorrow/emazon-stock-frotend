@@ -1,13 +1,11 @@
-@import "../../../shared/tokens/typografhy";
+@import '../../../shared/tokens/typografhy';
 
-
-.title{
-
+h1{
+    margin-bottom: 2rem;
+    width: 100%;
     text-align: center;
-    margin: 16px 0px;
-    
-    h1{
-
-        font-weight: bold;
+    @media (min-width: 768px) {
+        text-align: start;
     }
+    
 }

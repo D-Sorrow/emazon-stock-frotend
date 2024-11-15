@@ -1,0 +1,11 @@
+<div class="container">
+    <app-form class="container__form" 
+    [fields]="fields"
+    [formType]= "formType"
+    (formSubmitted)="saveData($event)"
+    (scrollDown)="chargeData($event)"
+    [categories]="categories"
+    [brands]="brands"
+    >
+    </app-form>
+</div>

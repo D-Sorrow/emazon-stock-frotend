@@ -1,0 +1,11 @@
+@import '../../../shared/tokens/colors';
+@import '../../../shared/tokens/typografhy';
+
+
+.label{
+    //display: block;
+    font-weight: $main_text_font_weight;
+    font-size: $main_text_body_m_light_size;
+    margin-bottom: 1rem;
+    color: $color_black;
+}

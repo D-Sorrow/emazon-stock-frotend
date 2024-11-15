@@ -1,0 +1,42 @@
+
+@import '../../../shared/tokens/colors';
+@import '../../../shared/tokens/typografhy';
+
+.table {
+    width: 100%;
+    padding: 16px;
+    table-layout: fixed;
+    border-collapse: collapse;
+    font-family: 'Arial', sans-serif;
+
+    &__header {
+        background-color: $color_purple_hover;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    &__row {
+        border-bottom: 1px solid #e0e0e0;
+
+        &--header {
+            border-bottom: 2px solid #d0d0d0;
+        }
+    }
+
+    &__header-cell, &__cell {
+        padding: 12px;
+        text-align: left;
+        font-size: 14px;
+        border-bottom: 1px solid $color_purple;
+    }
+
+    &__header-cell {
+        color: $color_white;
+        font-size: 16px;
+        padding-bottom: 8px;
+    }
+
+    &__cell:nth-child(even) {
+        color: $color_black;
+    }
+}

@@ -1,8 +1,8 @@
 export interface IArticle{
-    idArticle?: Number;
+    idArticle?: number;
     nameArticle: String;
     descriptionArticle: String;
-    stock: Number;
-    price: Number;
-    categories: Number[];
+    stock?: number;
+    price?: number;
+    categories: number[];
 }
