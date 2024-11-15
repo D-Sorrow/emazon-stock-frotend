@@ -1,0 +1,19 @@
+<details class="selector">
+    <summary class="selector__summary">{{titleSelect}}</summary>
+    <ul class="selector__list" (scroll)="scrollDownMethod($event)">
+        <li class="selector__item" *ngFor="let item of items">
+            <label class="selector__label">
+                <input type="checkbox" name="fc" class="selector__checkbox" 
+                [disabled]="item.id ? blockCheckboxCategory(item.id) : null"
+                (change)="item.id ? getValueToCategory(item.id) : null; item.id ? onSelectionChange(item.id): null"
+                />
+                {{ item.name }}
+            </label>
+        </li>
+    </ul>
+</details>
+
+<!-- 
+item.id ? onSelectionChange(item.id): null -->
+
+    

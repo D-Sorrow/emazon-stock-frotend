@@ -1,0 +1,5 @@
+<div class="pagination-bar">
+    <app-button (buttonClick)="prevPageClick()"  [size]="sizeButton" [icon]="prevButton"></app-button>
+    <div class="pagination-bar__number">{{pageCount}}</div>
+    <app-button (buttonClick)="nextPageClick()" [size]="sizeButton" [icon]="nextButton"></app-button>
+</div>

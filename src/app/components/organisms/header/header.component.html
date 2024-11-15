@@ -1,0 +1,9 @@
+<header class="header">
+    <app-logo [size]="'10'"></app-logo>
+    <app-button class="header__button-menu" [icon]="icon" [size]="sizeButton" (click)="toggleMenu()"></app-button>
+    <nav class="header__nav-bar" [class.open]="isMenuOpen" [ngClass]="{'header__nav-bar--active': isMenuOpen}">
+        <ul class="menu__option">
+            <li class="menu__option-link" *ngFor="let option of options"><a  href="{{option[1]}}">{{option[0]}}</a></li>
+        </ul>
+    </nav>
+</header>

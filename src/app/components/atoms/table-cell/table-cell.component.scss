@@ -1,0 +1,12 @@
+.row {
+    width: 100%;
+    border-bottom: 1px solid #e0e0e0;
+
+    &--header {
+        border-bottom: 2px solid #d0d0d0;
+    }
+
+    &:nth-child(even) {
+        background-color: #f9f9f9; // Alterna los colores de las filas
+    }
+}

@@ -1,0 +1,11 @@
+@import '../../../shared/tokens/typografhy';
+
+h1{
+    margin-bottom: 2rem;
+    width: 100%;
+    text-align: center;
+    @media (min-width: 768px) {
+        text-align: start;
+    }
+    
+}

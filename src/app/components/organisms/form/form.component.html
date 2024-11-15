@@ -1,0 +1,38 @@
+<div class="container">
+    <app-title class="title" [titleContent]="formTitle"></app-title>
+    <form [formGroup]="formGroup" (ngSubmit)="ngSubmit()">
+        <app-label [labelContent]="labelName"></app-label>
+    <app-input 
+        id = "name" 
+        type="{{formType}}" 
+        placeholder="{{placeholderName}}" 
+        [formControlName] ="'name'">
+    </app-input>    
+
+    <app-label [labelContent]="labelDescription"></app-label>
+    <app-input 
+        id = "description" 
+        type="{{formType}}" 
+        placeholder="{{placeholderDescription}}" 
+        [isTextarea]= "true"
+        [formControlName] ="'description'">
+    </app-input>  
+
+     <div *ngIf="formType === 'article'">
+
+        <app-label [labelContent]="labelQuantity"></app-label>
+        <app-input type="{{inputNumber}}" placeholder="{{placeholderName}}" [formControlName] ="'quantity'"></app-input>
+        <app-label [labelContent]="labelPrice"></app-label>
+        <app-input type="{{inputNumber}}" placeholder="{{placeholderName}}" [formControlName] ="'price'"></app-input>
+        <app-multi-select [formControlName]="'categories'" [typeSelect]="selectTypeCategory"  [items]="categories" [titleSelect]="'Selecciona las categorías'" (scrollDown)="onScrollDown($event)"></app-multi-select>
+        <app-multi-select [formControlName]="'brands'" [typeSelect]="selectTypeBrand"  [items]="brands" [titleSelect]="'Selecciona la marca'" (scrollDown)="onScrollDown($event)" ></app-multi-select>
+    </div> 
+    <div class="ButtonDiv">
+        <app-button [size]="sizeButton" (buttonClick)="handleButtonClick()" [labelButton]="buttonTitle" ></app-button>
+    </div>
+    </form>
+</div>
+
+<p>Valor {{formGroup.valid}}</p>
+<br />
+<p>Valor {{formGroup.value | json}}</p>

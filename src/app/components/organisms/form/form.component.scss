@@ -1,0 +1,22 @@
+@import '../../../shared/tokens/colors';
+@import '../../../shared/tokens/typografhy';
+
+.container{
+    
+    background-color: $color_white;
+    position: relative;
+    padding: 3rem;
+    border-radius: 2rem;
+    border: 1px solid $color_spacer-light;
+    box-shadow: 1px 10px 10px -10px $color_black ;
+    margin-top: 5em;
+}
+
+.ButtonDiv{
+    
+
+    @media (min-width: 768px) {
+        display: flex;
+        justify-content: center;
+    }
+}
