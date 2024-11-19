@@ -21,6 +21,8 @@ export class BrandComponent implements OnInit {
   currentPage = 0;
   brands: DataForm[] = [];
 
+  sortField: string = 'asc';
+
   formType: FormType = FormType.BRAND;
 
   fields: Field[] = [
@@ -48,7 +50,6 @@ export class BrandComponent implements OnInit {
 
   initTable(){
     this.brandService.getAllBrands(0, 'asc').subscribe((response) => {
-      console.log('Brands:', response);
       this.brands = this.mapBrandsToDataForm(response.collection);
       this.pagesSize = response.pageSize;
     });
@@ -57,18 +58,15 @@ export class BrandComponent implements OnInit {
   saveData(dataForm: DataForm): void  {
     const brand: IBrand = this.mapDataFormToBrand(dataForm);
     this.brandService.addBrand(brand).subscribe(response => {
-      console.log('Brand added successfully!');
     });
   }
 
   nextPage() {
     if(this.currentPage < this.pagesSize){
       this.currentPage++;
-      console.log('Página actual:', this.currentPage);
-      this.brandService.getAllBrands(this.currentPage, 'asc').subscribe(
+      this.brandService.getAllBrands(this.currentPage, this.sortField).subscribe(
         response => {
           this.brands = this.mapBrandsToDataForm(response.collection);
-          console.log('Marcas cargadas:', this.brands);
         },
         error => {
           console.error('Error al cargar las Marcas:', error);
@@ -82,16 +80,30 @@ export class BrandComponent implements OnInit {
     if (this.currentPage > 0) {
       this.currentPage--;
     }
-    this.brandService.getAllBrands(this.currentPage, 'asc').subscribe(
+    this.brandService.getAllBrands(this.currentPage, this.sortField).subscribe(
       response => {
         this.brands = this.mapBrandsToDataForm(response.collection);
-        console.log('Marcas cargadas:', this.brands);
       },
       error => {
         console.error('Error al cargar las Marcas:', error);
       }
     );
-    console.log('Página actual:', this.currentPage);
+  }
+
+  sortItem(){
+
+    if(this.sortField === 'asc'){
+      this.sortField = 'desc';
+    }else{
+      this.sortField = 'asc';
+    }
+    
+    this.brandService.getAllBrands(this.currentPage, this.sortField).subscribe(
+      response => {
+        this.brands = this.mapBrandsToDataForm(response.collection);
+      }
+    )
+
   }
 
   mapDataFormToBrand(dataForm: DataForm): IBrand {

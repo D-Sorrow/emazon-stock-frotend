@@ -1,0 +1,21 @@
+<div class="card" *ngFor="let article of articles">
+    <app-img [dirImg]="dirImagen" ></app-img>
+    <div class="card__content">
+        <h2 class="card__title">{{article.nameArticle}}</h2>
+        <div class="card__description">
+            <div class="card__column">
+                <div class="card__previous">
+                    <span class="card__previous--text">${{numerModified(article.price ? article.price: 0)}}</span>
+                </div>
+                <div class="card__price">
+                    <span class="price_number">${{article.price}}</span>
+                </div>
+            </div>
+            <div class="card__column">
+                <div class="card__shipping">
+                    <span class="card__shipping--text">Llega gratis mañana</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

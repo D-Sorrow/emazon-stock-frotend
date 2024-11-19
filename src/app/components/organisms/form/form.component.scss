@@ -9,7 +9,8 @@
     border-radius: 2rem;
     border: 1px solid $color_spacer-light;
     box-shadow: 1px 10px 10px -10px $color_black ;
-    margin-top: 5em;
+    margin: 5rem 0;
+    
 }
 
 .ButtonDiv{
@@ -19,4 +20,8 @@
         display: flex;
         justify-content: center;
     }
+}
+
+.form__input{
+    margin-bottom: 1rem;
 }

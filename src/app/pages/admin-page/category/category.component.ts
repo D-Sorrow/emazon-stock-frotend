@@ -20,6 +20,8 @@ export class CategoryComponent implements OnInit {
   currentPage = 0;
   categories: DataForm[] = [];
 
+  sortField: string = 'asc';
+
   formType: FormType = FormType.CATEGORY; 
 
   fields: Field[] = [
@@ -49,13 +51,11 @@ export class CategoryComponent implements OnInit {
   saveData(dataForm: DataForm): void  {
     const category: ICategory = this.mapDataFormToCategory(dataForm);
     this.categoryService.addCategory(category).subscribe(response => {
-      console.log('Category added successfully!');
     });
   }
 
   initTable(){
     this.categoryService.getAllCategories(0, 'asc').subscribe((response) => {
-      console.log('Categories:', response);
       this.categories = this.mapCategoriesToDataForm(response.collection);
       this.pagesSize = response.pageSize;
     });
@@ -64,11 +64,9 @@ export class CategoryComponent implements OnInit {
   nextPage() {
     if(this.currentPage < this.pagesSize){
       this.currentPage++;
-      console.log('Página actual:', this.currentPage);
-      this.categoryService.getAllCategories(this.currentPage, 'asc').subscribe(
+      this.categoryService.getAllCategories(this.currentPage, this.sortField).subscribe(
         response => {
           this.categories = this.mapCategoriesToDataForm(response.collection);
-          console.log('Categorías cargadas:', this.categories);
         },
         error => {
           console.error('Error al cargar las categorías:', error);
@@ -82,16 +80,30 @@ export class CategoryComponent implements OnInit {
     if (this.currentPage > 0) {
       this.currentPage--;
     }
-    this.categoryService.getAllCategories(this.currentPage, 'asc').subscribe(
+    this.categoryService.getAllCategories(this.currentPage, this.sortField).subscribe(
       response => {
         this.categories = this.mapCategoriesToDataForm(response.collection);
-        console.log('Categorías cargadas:', this.categories);
       },
       error => {
         console.error('Error al cargar las categorías:', error);
       }
     );
-    console.log('Página actual:', this.currentPage);
+  }
+
+  sortItem(){
+
+    if(this.sortField === 'asc'){
+      this.sortField = 'desc';
+    }else{
+      this.sortField = 'asc';
+    }
+    
+    this.categoryService.getAllCategories(this.currentPage, this.sortField).subscribe(
+      response => {
+        this.categories = this.mapCategoriesToDataForm(response.collection);
+      }
+    )
+
   }
 
   mapDataFormToCategory(dataForm: DataForm): ICategory {

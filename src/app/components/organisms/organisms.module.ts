@@ -7,14 +7,15 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { TableComponent } from './table/table.component';
 import { MultiSelectComponent } from './multi-select/multi-select.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
-  declarations: [FormComponent, HeaderComponent, FooterComponent, TableComponent, MultiSelectComponent],
+  declarations: [FormComponent, HeaderComponent, FooterComponent, TableComponent, MultiSelectComponent, CardComponent],
   imports: [
     SharedModule,
     AtomsModule,
     MoleculesModule
   ],
-  exports: [FormComponent, HeaderComponent, FooterComponent, TableComponent, MultiSelectComponent]
+  exports: [FormComponent, HeaderComponent, FooterComponent, TableComponent, MultiSelectComponent, CardComponent]
 })
 export class OrganismsModule { }

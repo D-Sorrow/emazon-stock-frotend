@@ -1,13 +1,3 @@
-<!-- <input  
-    class="input" 
-    [placeholder]="placeholder" 
-    [type]="type" 
-    [disabled]="disabled"
-    (input)="onInput($event)"
-    [required]="required"
-    [(ngModel)]="value"
-> -->
-
 <ng-container *ngIf="isTextarea; else inputTemplate">
     <textarea
         class="textarea"

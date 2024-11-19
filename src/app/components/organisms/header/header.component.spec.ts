@@ -1,7 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HeaderComponent } from './header.component';
-import { Rol } from 'src/app/shared/enum/rol.enum';
-import { ComponentSize } from 'src/app/shared/enum/component-size.enum';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 

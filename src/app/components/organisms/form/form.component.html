@@ -1,29 +1,48 @@
 <div class="container">
     <app-title class="title" [titleContent]="formTitle"></app-title>
     <form [formGroup]="formGroup" (ngSubmit)="ngSubmit()">
-        <app-label [labelContent]="labelName"></app-label>
-    <app-input 
-        id = "name" 
-        type="{{formType}}" 
-        placeholder="{{placeholderName}}" 
-        [formControlName] ="'name'">
-    </app-input>    
+        
+        <div class="form__input">
+            <app-label [labelContent]="labelName"></app-label>
+            <app-input 
+            id = "name" 
+            type="{{formType}}" 
+            placeholder="{{placeholderName}}" 
+            [formControlName] ="'name'">
+            
+        </app-input>
+    
+        <app-error-message *ngIf="formGroup.get('name')?.errors?.['required'] && formGroup.get('name')?.touched" [errorMessage]="'El campo es requerido '"></app-error-message> 
+        <app-error-message *ngIf="formGroup.get('name')?.errors?.['maxlength']" [errorMessage]="'No puede exceder los 50 carácteres'"></app-error-message> 
+    
+        </div>
 
-    <app-label [labelContent]="labelDescription"></app-label>
-    <app-input 
-        id = "description" 
-        type="{{formType}}" 
-        placeholder="{{placeholderDescription}}" 
-        [isTextarea]= "true"
-        [formControlName] ="'description'">
-    </app-input>  
-
+        <div class="form__input">
+            <app-label [labelContent]="labelDescription"></app-label>
+            <app-input 
+                id = "description" 
+                type="{{formType}}" 
+                placeholder="{{placeholderDescription}}" 
+                [isTextarea]= "true"
+                [formControlName] ="'description'">
+            </app-input>  
+            <app-error-message *ngIf="formGroup.get('description')?.errors?.['required'] && formGroup.get('description')?.touched" [errorMessage]="'El campo es requerido '"></app-error-message> 
+            <app-error-message *ngIf="formGroup.get('description')?.errors?.['maxlength']" [errorMessage]="'No puede exceder los 90 carácteres'"></app-error-message> 
+        </div>
+    
      <div *ngIf="formType === 'article'">
 
-        <app-label [labelContent]="labelQuantity"></app-label>
-        <app-input type="{{inputNumber}}" placeholder="{{placeholderName}}" [formControlName] ="'quantity'"></app-input>
-        <app-label [labelContent]="labelPrice"></app-label>
-        <app-input type="{{inputNumber}}" placeholder="{{placeholderName}}" [formControlName] ="'price'"></app-input>
+        <div class="form__input">
+            <app-label [labelContent]="labelQuantity"></app-label>
+            <app-input type="{{inputNumber}}" placeholder="{{placeholderName}}" [formControlName] ="'quantity'"></app-input>
+            <app-error-message *ngIf="formGroup.get('quantity')?.errors?.['required'] && formGroup.get('quantity')?.touched" [errorMessage]="'El campo es requerido '"></app-error-message> 
+        </div>
+
+        <div class="form__input">
+            <app-label [labelContent]="labelPrice"></app-label>
+            <app-input type="{{inputNumber}}" placeholder="{{placeholderName}}" [formControlName] ="'price'"></app-input>
+            <app-error-message *ngIf="formGroup.get('price')?.errors?.['required'] && formGroup.get('price')?.touched" [errorMessage]="'El campo es requerido '"></app-error-message>
+        </div>
         <app-multi-select [formControlName]="'categories'" [typeSelect]="selectTypeCategory"  [items]="categories" [titleSelect]="'Selecciona las categorías'" (scrollDown)="onScrollDown($event)"></app-multi-select>
         <app-multi-select [formControlName]="'brands'" [typeSelect]="selectTypeBrand"  [items]="brands" [titleSelect]="'Selecciona la marca'" (scrollDown)="onScrollDown($event)" ></app-multi-select>
     </div> 
@@ -32,7 +51,3 @@
     </div>
     </form>
 </div>
-
-<p>Valor {{formGroup.valid}}</p>
-<br />
-<p>Valor {{formGroup.value | json}}</p>

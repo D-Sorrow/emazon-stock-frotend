@@ -3,6 +3,7 @@ import {
   faChevronCircleLeft,
   faChevronCircleRight,
   IconDefinition,
+  faSortAlphaUp
 } from '@fortawesome/free-solid-svg-icons';
 import { ComponentSize } from 'src/app/shared/enum/component-size.enum';
 @Component({
@@ -14,11 +15,14 @@ export class PaginationBarComponent implements OnInit {
 
   nextButton: IconDefinition = faChevronCircleRight;
   prevButton: IconDefinition = faChevronCircleLeft;
+  sortButton: IconDefinition = faSortAlphaUp;
   sizeButton: ComponentSize = ComponentSize.XS;
+  size: ComponentSize = ComponentSize.MEDIUM;
   pageCount: number = 1;
   @Input() pageSize: number = 1;
   @Output() nextPage = new  EventEmitter<void>();
   @Output() prevPage = new  EventEmitter<void>();
+  @Output() sortItem = new  EventEmitter<void>();
 
   
   constructor() { }
@@ -38,6 +42,10 @@ export class PaginationBarComponent implements OnInit {
       this.pageCount--;
       this.prevPage.emit();
     }
+  }
+
+  sortClick(){
+    this.sortItem.emit();
   }
 
 }

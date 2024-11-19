@@ -19,6 +19,7 @@ export class InputComponent implements OnInit {
   @Input() type: string = '';
   @Input() required: boolean = false;
   @Input() isTextarea: boolean = false;
+  
 
   value: string = '';
   disabled: boolean = false;

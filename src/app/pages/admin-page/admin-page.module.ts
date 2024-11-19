@@ -9,6 +9,7 @@ import { TemplateModule } from 'src/app/template/template.module';
 import { AdminTemplateComponent } from 'src/app/template/admin-template/admin-template.component';
 import { BrandComponent } from './brand/brand.component';
 import { ArticleComponent } from './article/article.component';
+import { ListArticlesComponent } from './list-articles/list-articles.component';
 
 
 
@@ -17,6 +18,7 @@ import { ArticleComponent } from './article/article.component';
     CategoryComponent,
     BrandComponent,
     ArticleComponent,
+    ListArticlesComponent,
   ],
   imports: [
     AtomsModule,

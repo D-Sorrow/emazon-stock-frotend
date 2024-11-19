@@ -102,4 +102,23 @@ describe('CategoryComponent', () => {
     component.previousPage();
     expect(component.currentPage).toBe(0);
   });
+
+  it('should toggle sortField between "asc" and "desc" and call categoryService.getAllCategories', () => {
+    const mockResponse = {
+      collection: [{ nameCategory: 'Category 1', descriptionCategory: 'Description 1' }],
+    };
+    jest.spyOn(categoryService, 'getAllCategories').mockReturnValue(of(mockResponse as IPageResponse<ICategory>));
+
+    component.sortItem();
+
+    expect(component.sortField).toBe('desc');
+
+    expect(categoryService.getAllCategories).toHaveBeenCalledWith(component.currentPage, 'desc');
+
+    component.sortItem();
+
+    expect(component.sortField).toBe('asc');
+
+    expect(categoryService.getAllCategories).toHaveBeenCalledWith(component.currentPage, 'asc');
+  });
 });

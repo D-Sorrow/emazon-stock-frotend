@@ -46,11 +46,11 @@ describe('PaginationBarComponent', () => {
   
   it('should not emit prevPage when prevPageClick is called and pageCount is 1', () => {
     component.pageCount = 1;
-    jest.spyOn(component.prevPage, 'emit');  // Usa jest.spyOn para espiar el método emit
+    jest.spyOn(component.prevPage, 'emit'); 
 
     component.prevPageClick();
 
-    expect(component.pageCount).toBe(1);  // pageCount no debería haber cambiado
-    expect(component.prevPage.emit).not.toHaveBeenCalled();  // El evento no debe haberse emitido
+    expect(component.pageCount).toBe(1); 
+    expect(component.prevPage.emit).not.toHaveBeenCalled(); 
   });
 });

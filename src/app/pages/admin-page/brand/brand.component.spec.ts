@@ -112,4 +112,27 @@ describe('BrandComponent', () => {
     expect(component.currentPage).toBe(1);
     expect(brandService.getAllBrands).toHaveBeenCalledWith(1, 'asc');
   });
+
+  it('should toggle sortField between "asc" and "desc" and call brandService.getAllBrands', () => {
+    const mockBrandsResponse = {
+      collection: [
+        { brandName: 'Brand 1', brandDescription: 'Description 1' },
+        { brandName: 'Brand 2', brandDescription: 'Description 2' }
+      ],
+      pageSize: 2
+    };
+    jest.spyOn(brandService, 'getAllBrands').mockReturnValue(of(mockBrandsResponse as IPageResponse<IBrand>));
+
+    component.sortItem();
+
+    expect(component.sortField).toBe('desc');
+
+    expect(brandService.getAllBrands).toHaveBeenCalledWith(component.currentPage, 'desc');
+
+    component.sortItem();
+
+    expect(component.sortField).toBe('asc');
+
+    expect(brandService.getAllBrands).toHaveBeenCalledWith(component.currentPage, 'asc');
+  });
 });
