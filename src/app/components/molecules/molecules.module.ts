@@ -4,6 +4,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ToastComponent } from './toast/toast.component';
 import { PaginationBarComponent } from './pagination-bar/pagination-bar.component';
+import { SelectComponent } from './select/select.component';
 
 
 
@@ -12,6 +13,7 @@ import { PaginationBarComponent } from './pagination-bar/pagination-bar.componen
     NavBarComponent,
     ToastComponent,
     PaginationBarComponent,
+    SelectComponent,
   ],
   imports: [
     SharedModule,
@@ -19,7 +21,8 @@ import { PaginationBarComponent } from './pagination-bar/pagination-bar.componen
   ],
   exports: [
     NavBarComponent,
-    PaginationBarComponent
+    PaginationBarComponent,
+    SelectComponent
   ]
 })
 export class MoleculesModule { }

@@ -10,6 +10,7 @@ import { AdminTemplateComponent } from 'src/app/template/admin-template/admin-te
 import { BrandComponent } from './brand/brand.component';
 import { ArticleComponent } from './article/article.component';
 import { ListArticlesComponent } from './list-articles/list-articles.component';
+import { AuxBodegaComponent } from './aux-bodega/aux-bodega.component';
 
 
 
@@ -19,6 +20,7 @@ import { ListArticlesComponent } from './list-articles/list-articles.component';
     BrandComponent,
     ArticleComponent,
     ListArticlesComponent,
+    AuxBodegaComponent,
   ],
   imports: [
     AtomsModule,

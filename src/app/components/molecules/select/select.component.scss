@@ -1,0 +1,13 @@
+
+@import '../../../shared/tokens/colors';
+@import '../../../shared/tokens/typografhy';
+#select{
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.3rem;
+    border: none;
+    border-bottom: 0.1rem solid $color_border;
+    color: $color_black;
+    font-size: 1rem;
+    
+}

@@ -1,0 +1,11 @@
+@import '../../../shared/tokens/colors';
+@import '../../../shared/tokens/typografhy';
+
+.container{
+    padding: 0rem 10%;
+    &__form{
+        width: 100%;
+        margin-top: 2rem;        
+    }
+    
+}

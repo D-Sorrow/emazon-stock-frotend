@@ -19,10 +19,10 @@ export class FormComponent implements OnInit {
   @Input() fields: Field[]  = [];
   @Input() categories!: DataForm[];
   @Input() brands!: DataForm[];
+  @Input() formTitle: string = 'Form Title';
+  @Input() typeUser!: string[];
   @Output() formSubmitted = new EventEmitter<DataForm>();
   @Output() scrollDown = new EventEmitter<multiSelectType>();
-
-  formTitle: string = 'Form Title';
   buttonTitle: string = 'Guardar';
   placeholderName: string = '';
   placeholderDescription: string = '';

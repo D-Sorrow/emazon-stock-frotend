@@ -33,6 +33,7 @@ export class HeaderComponent implements OnInit {
         ["Marca", "/marca"],
         ["Artículo", "/articulo"],
         ["Lista de artículos", "/lista-articulos"],
+        ["Usuario", "/usuario"],
       ]
     }
   }
