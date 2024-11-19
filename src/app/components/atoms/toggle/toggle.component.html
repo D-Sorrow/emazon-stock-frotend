@@ -1,0 +1,10 @@
+<div class="container">
+    <label>{{toggleLabel}}</label>
+    <label class="switch">
+        <input type="checkbox" class="switch__checkbox" [checked]="checked" (change)="onToggle($event, toggleLabel)">
+        <div class="switch__rail">
+            <span class="circle"></span>
+        </div>
+        <span class="switch__indicator"></span>
+    </label>
+</div>

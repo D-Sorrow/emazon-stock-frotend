@@ -10,31 +10,3 @@
         color: $color_white;
     }
 }
-
-// .nav-bar {
-//     display: flex;
-//     align-items: center;
-
-//     &__button-menu {
-//         display: block; // El botón se muestra por defecto
-//     }
-
-//     &__menu {
-//         display: none; // El menú de navegación está oculto por defecto
-//         &.open {
-//             display: block; // Se muestra cuando la clase `open` está presente
-//             opacity: 1;
-//         }
-//     }
-
-//     @media (min-width: 768px) {
-//         &__button-menu {
-//             display: none; // Oculta el botón cuando la pantalla sea mayor a 768px
-//         }
-
-//         &__menu {
-//             display: block; // Muestra el menú de navegación cuando la pantalla sea mayor a 768px
-//         }
-//     }
-// }
-

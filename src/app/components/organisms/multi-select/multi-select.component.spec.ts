@@ -36,22 +36,17 @@ describe('MultiSelectComponent', () => {
   });
 
   it('should update selectedValues and value when writeValue is called', () => {
-    // Define un array de valores para probar
     const testValues: string[] = ['1', '2', '3'];
 
-    // Llama al método writeValue con los testValues
     component.writeValue(testValues);
 
-    // Verifica que selectedValues y value se hayan actualizado correctamente
     expect(component.selectedValues).toEqual(testValues);
     expect(component.value).toEqual(testValues);
   });
 
   it('should not update selectedValues and value when writeValue is called with null', () => {
-    // Llama al método writeValue con un valor null
     component.writeValue([]);
 
-    // Verifica que selectedValues y value no se hayan actualizado (deben permanecer vacíos)
     expect(component.selectedValues).toEqual([]);
     expect(component.value).toEqual([]);
   });

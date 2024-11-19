@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="container__filter-bar">
+        <div class="filter-bar__title">
+            <h2>Filtro</h2>
+        </div>
+        <div class="filter-bar__sort">
+            <div class="filter" *ngFor="let filter of habledFilter">
+                <app-toggle (toggleChange)="handleToggleChange($event)" [checked]="filter[1]"  [toggleLabel]="filter[0]"></app-toggle>
+            </div>
+        </div>
+    </div>
+    <div class="container__articles">
+        <app-card class="card" [articles]="articles"></app-card>
+        <app-pagination-bar (sortItem)="sortItem()"  [pageSize]="pagesSize" (nextPage)="nextPage()" (prevPage)="previousPage()"></app-pagination-bar>
+    </div>   
+</div>

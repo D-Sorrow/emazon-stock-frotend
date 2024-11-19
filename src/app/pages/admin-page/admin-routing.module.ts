@@ -4,6 +4,7 @@ import { AdminTemplateComponent } from 'src/app/template/admin-template/admin-te
 import { CategoryComponent } from './category/category.component';
 import { BrandComponent } from './brand/brand.component';
 import { ArticleComponent } from './article/article.component';
+import { ListArticlesComponent } from './list-articles/list-articles.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path:'articulo',
         component: ArticleComponent,
+      },
+      {
+        path:'lista-articulos',
+        component: ListArticlesComponent,
       }
       
     ]

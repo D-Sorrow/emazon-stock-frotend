@@ -7,6 +7,9 @@ import { LogoComponent } from './logo/logo.component';
 import { TableCellComponent } from './table-cell/table-cell.component';
 import { TitleComponent } from './title/title.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ImgComponent } from './img/img.component';
+import { ToggleComponent } from './toggle/toggle.component';
+import { ErrorMessageComponent } from './error-message/error-message.component';
 
 
 
@@ -20,6 +23,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     LogoComponent,
     TableCellComponent,
     TitleComponent,
+    ImgComponent,
+    ToggleComponent,
+    ErrorMessageComponent,
 
   ],
   imports: [
@@ -33,6 +39,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     LogoComponent,
     TableCellComponent,
     TitleComponent,
+    ImgComponent,
+    ToggleComponent,
+    ErrorMessageComponent
     
   ]
 })

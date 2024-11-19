@@ -1,0 +1,8 @@
+.img{
+
+    width: 22rem;
+
+    @media (max-width: 1028px) {
+        width: 100%;
+    }
+}

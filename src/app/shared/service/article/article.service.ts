@@ -19,4 +19,14 @@ export class ArticleService {
   addArticle(articleData: IArticle):Observable<IArticle>{
     return this.http.post<IArticle>(this.apiStockUrl + "addArticle", articleData);
   }
+
+  getAllArticles(page: number, sort: string, sortBy: string): Observable<IPageResponse<IArticle>>{
+    let params = new HttpParams()
+      .set('page', page)
+      .set('size', 5)
+      .set('sortDirection', sort)
+      .set('sortBy', sortBy);
+
+      return this.http.get<IPageResponse<IArticle>>(this.apiStockUrl + "getAllArticles", {params});
+  }
 }

@@ -1,0 +1,62 @@
+@import '../../../shared/tokens/colors';
+@import '../../../shared/tokens/typografhy';
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__label{
+        margin: 0;
+    }
+}
+.switch{
+    height: 3rem;
+    padding: 0 1.5rem;
+    border-radius: 0.8rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    &__checkbox{
+        display: none;
+    }
+
+    &__checkbox:checked ~ .switch__rail .circle{
+        transform: translate(2.3rem, -50%);
+        background-color: $color_white ;
+    }
+
+    &__checkbox:checked ~ .switch__rail{
+        background-color: $color_purple_hover ;
+    }
+
+    &__rail{
+        position: relative;
+        width: 4rem;
+        height: 1.5rem;
+        background-color: $color_bg-light-grey;
+        border-radius: 3rem;
+
+    }
+
+}
+
+.circle{
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: $color_purple_hover;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    transition: transform 0.4s;
+}
+
+.switch__checkbox:checked ~ .circle {
+    background-color: white; 
+}
+
+
