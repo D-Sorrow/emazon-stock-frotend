@@ -37,28 +37,28 @@ export class ArticleComponent implements OnInit {
 
   fields: Field[] = [
     {
-      label: '',
+      label: 'Nombre del artículo',
       formControlName: 'name',
       type: inputType.TEXT,
-      placeholder: '',
+      placeholder: 'Ingresa el nombre del artículo',
       validators: [Validators.required, Validators.maxLength(50)],
     },
     {
-      label: '',
+      label: 'Descripción del artículo',
       formControlName: 'description',
       type: inputType.TEXTAREA,
-      placeholder: '',
+      placeholder: 'Ingresa la descripción del artículo',
       validators: [Validators.required, Validators.maxLength(90)],
     },
     {
-      label: '',
+      label: 'Precio del artículo',
       formControlName: 'price',
       type: inputType.NUMBER,
       placeholder: 'Ingrese el precio',
       validators: [Validators.required, Validators.min(1)],
     },
     {
-      label: '',
+      label: 'Cantidad',
       formControlName: 'quantity',
       type: inputType.NUMBER,
       placeholder: 'Ingrese la cantidad',

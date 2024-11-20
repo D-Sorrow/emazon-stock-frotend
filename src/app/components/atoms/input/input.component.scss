@@ -10,6 +10,12 @@
     border-bottom: 0.1rem solid $color_border;
     color: $color_black;
     font-size: 1rem;
+    &--invalid{
+        border: 0.1rem solid $color_error;
+    }
+    &--invalid::placeholder{
+        color: $color_error;
+    }
 }
 .textarea{
     width: 100%;
@@ -21,5 +27,12 @@
     border-bottom: 0.1rem solid $color_border;
     color: $color_black;
     font-family: 1rem;
+    font-size: 1rem;
 
+    &--invalid{
+        border: 0.1rem solid $color_error;
+    }
+    &--invalid::placeholder{
+        color: $color_error;
+    }
 }

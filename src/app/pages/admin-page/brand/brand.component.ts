@@ -27,17 +27,17 @@ export class BrandComponent implements OnInit {
 
   fields: Field[] = [
     {
-      label: '',
+      label: 'Nombre de la marca',
       formControlName: 'name',
       type: inputType.TEXT,
-      placeholder: '',
+      placeholder: 'Ingresa el nombre de la marca',
       validators: [Validators.required, Validators.maxLength(50)],
     },
     {
-      label: '',
+      label: 'Descripción de la marca',
       formControlName: 'description',
       type: inputType.TEXTAREA,
-      placeholder: '',
+      placeholder: 'Ingresa la descripción de la marca',
       validators: [Validators.required, Validators.maxLength(90)],
     },
   ];

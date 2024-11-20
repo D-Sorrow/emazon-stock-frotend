@@ -26,17 +26,17 @@ export class CategoryComponent implements OnInit {
 
   fields: Field[] = [
     {
-      label: '',
+      label: 'Nombre de la categoría',
       formControlName: 'name',
       type: inputType.TEXT,
-      placeholder: '',
+      placeholder: 'Ingresar el nombre de la categoría',
       validators: [Validators.required, Validators.maxLength(50)],
     },
     {
-      label: '',
+      label: 'Descripción de la categoría',
       formControlName: 'description',
       type: inputType.TEXTAREA,
-      placeholder: '',
+      placeholder: 'Ingresa la descripción de la categoría',
       validators: [Validators.required, Validators.maxLength(90)],
     },
   ];

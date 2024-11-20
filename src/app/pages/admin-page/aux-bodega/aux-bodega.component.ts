@@ -62,7 +62,7 @@ export class AuxBodegaComponent implements OnInit {
     {
       label: 'Contraseña',
       formControlName: 'userPassword',
-      type: inputType.TEXT,
+      type: inputType.PASSWORD,
       placeholder: 'Ingresa la contraseña',
       validators: [Validators.email],
     },

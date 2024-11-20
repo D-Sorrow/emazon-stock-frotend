@@ -9,4 +9,5 @@ export enum inputType {
     DATE = 'date',
     FILE = 'file',
     CUSTOM = 'custom',
+    PASSWORD = 'password',
 }

@@ -24,6 +24,7 @@ export class FormComponent implements OnInit {
   @Output() formSubmitted = new EventEmitter<DataForm>();
   @Output() scrollDown = new EventEmitter<multiSelectType>();
   buttonTitle: string = 'Guardar';
+  messageError: string = 'Error';
   placeholderName: string = '';
   placeholderDescription: string = '';
   placeholderQuantity: string = '';
@@ -112,6 +113,19 @@ export class FormComponent implements OnInit {
 
   onSelectedItemsChange(selectedItems: string[]): void {
     this.formGroup.get('categories')?.setValue(selectedItems);
+  }
+
+  getErrorMessage(controlName: string): boolean {
+
+    const control = this.formGroup.get(controlName);
+    if (control?.hasError('required') && control?.touched) {
+      this.messageError = 'El campo es requerido';
+      return true;
+    }else if (control?.hasError('maxlength')) {
+      this.messageError = 'No puede exceder los 50 carácteres';
+      return true;
+    }
+    return false;
   }
 }
 

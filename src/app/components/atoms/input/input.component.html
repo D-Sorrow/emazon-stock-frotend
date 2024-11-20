@@ -1,6 +1,7 @@
 <ng-container *ngIf="isTextarea; else inputTemplate">
     <textarea
         class="textarea"
+        [ngClass]="{'textarea--invalid': error}"
         [(ngModel)]="value"
         [placeholder]="placeholder"
         [required]="required"
@@ -10,6 +11,7 @@
 <ng-template #inputTemplate>
     <input
     class="input"
+    [ngClass]="{'input--invalid': error}"
     [type]="type"
     [(ngModel)]="value"
     [placeholder]="placeholder"

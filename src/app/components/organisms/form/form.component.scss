@@ -10,9 +10,17 @@
     border: 1px solid $color_spacer-light;
     box-shadow: 1px 10px 10px -10px $color_black ;
     margin: 5rem 0;
+
+    @media (min-width: 768px) {
+        &--create-user{
+            display: grid;
+            grid-template-rows: auto auto; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 1rem;
+        }
+    }
     
 }
-
 .ButtonDiv{
     
 
