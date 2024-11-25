@@ -11,6 +11,7 @@ import { BrandService } from 'src/app/shared/service/brand/brand.service';
 import { CategoryService } from 'src/app/shared/service/category/category.service';
 import { DataForm } from 'src/app/shared/utils/DataForm';
 import { Field } from 'src/app/shared/utils/Fields';
+import { ToastService } from 'src/app/shared/service/toast/toast.service';
 
 @Component({
   selector: 'app-article',
@@ -38,14 +39,14 @@ export class ArticleComponent implements OnInit {
   fields: Field[] = [
     {
       label: 'Nombre del artículo',
-      formControlName: 'name',
+      formControlName: 'nameArticle',
       type: inputType.TEXT,
       placeholder: 'Ingresa el nombre del artículo',
       validators: [Validators.required, Validators.maxLength(50)],
     },
     {
       label: 'Descripción del artículo',
-      formControlName: 'description',
+      formControlName: 'descriptionArticle',
       type: inputType.TEXTAREA,
       placeholder: 'Ingresa la descripción del artículo',
       validators: [Validators.required, Validators.maxLength(90)],
@@ -59,7 +60,7 @@ export class ArticleComponent implements OnInit {
     },
     {
       label: 'Cantidad',
-      formControlName: 'quantity',
+      formControlName: 'stock',
       type: inputType.NUMBER,
       placeholder: 'Ingrese la cantidad',
       validators: [
@@ -77,7 +78,7 @@ export class ArticleComponent implements OnInit {
     },
     {
       label: '',
-      formControlName: 'brands',
+      formControlName: 'brand',
       type: inputType.NUMBER,
       validators: [
         Validators.required,
@@ -85,16 +86,24 @@ export class ArticleComponent implements OnInit {
     }
   ];
 
-  constructor(private articleService: ArticleService, private categoryService: CategoryService, private brandService: BrandService) { }
+  constructor(private articleService: ArticleService, private categoryService: CategoryService, 
+    private brandService: BrandService , private toastService: ToastService) { }
 
   ngOnInit(): void {
     this.initMultiSelect();
   }
 
-  saveData(dataForm: DataForm): void  {
-    const article: IArticle = this.mapDataFormToArticle(dataForm);
-    this.articleService.addArticle(article).subscribe(response => {
-      console.log('Article added successfully!');
+  saveData(dataForm: IArticle): void  {
+    let brand = dataForm.brand? parseInt(dataForm.brand.toString()): 0;
+
+    dataForm.brand = brand;
+    this.articleService.addArticle(dataForm).subscribe({
+      next: (response) => {
+        this.toastService.showToast('Artículo agregado!', 'success');
+      },
+      error: (err) => {
+        this.toastService.showToast('Ups algo salió mal.', 'error');
+      },
     });
   }
 
@@ -130,18 +139,6 @@ export class ArticleComponent implements OnInit {
       this.countPageBrand++;
     }
   }
-
-  mapDataFormToArticle(dataForm: DataForm): IArticle {
-
-    return {
-      nameArticle: dataForm.name,
-      descriptionArticle: dataForm.description,
-      stock: dataForm.quantity,
-      price: dataForm.price,
-      categories: dataForm.categoryList?.map(category => parseInt(category)) ? dataForm.categoryList?.map(category => parseInt(category)): this.selectItemCategory,
-    };
-  }
-
   mapBrandsToDataForm(brands: IBrand[]): DataForm[] {
     return brands.map(brand => ({
       id: brand.brandId,

@@ -2,25 +2,31 @@
     <app-title class="title" [titleContent]="formTitle"></app-title>
     <form [formGroup]="formGroup" (ngSubmit)="ngSubmit()" [ngClass]="{'container--create-user': formType === 'aux_bodega'}">
         <ng-container *ngFor="let field of fields">
-            <div class="form__input" *ngIf="field.formControlName !== 'categories' && field.formControlName !== 'brands'"> 
+            <div class="form__input" *ngIf="field.formControlName !== 'role' && field.formControlName !== 'categories' && field.formControlName !== 'brand'">
                 <app-label [labelContent]="field.label"></app-label>
-                <app-input 
+                <app-input
                     [error]="getErrorMessage(field.formControlName)"
-                    type="{{field.type}}" 
+                    type="{{field.type}}"
                     [isTextarea]="field.type === 'textarea'"
-                    placeholder="{{field.placeholder}}" 
+                    placeholder="{{field.placeholder}}"
                     formControlName="{{field.formControlName}}"
                     >
                 </app-input>
-                <app-error-message *ngIf="getErrorMessage(field.formControlName)" [errorMessage]="messageError"></app-error-message>      
+                <app-error-message *ngIf="getErrorMessage(field.formControlName)" [errorMessage]="messageError"></app-error-message>
             </div>
+            
         </ng-container>
         <div class="form__input" *ngIf="formType === 'article'">
             <app-multi-select [formControlName]="'categories'" [typeSelect]="selectTypeCategory"  [items]="categories" [titleSelect]="'Selecciona las categorías'" (scrollDown)="onScrollDown($event)"></app-multi-select>
-            <app-multi-select [formControlName]="'brands'" [typeSelect]="selectTypeBrand"  [items]="brands" [titleSelect]="'Selecciona la marca'" (scrollDown)="onScrollDown($event)" ></app-multi-select>
+            <app-multi-select [formControlName]="'brand'" [typeSelect]="selectTypeBrand"  [items]="brands" [titleSelect]="'Selecciona la marca'" (scrollDown)="onScrollDown($event)" ></app-multi-select>
         </div>
-        <div class="ButtonDiv">
-            <app-button [size]="sizeButton" (buttonClick)="handleButtonClick()" [labelButton]="buttonTitle" ></app-button>
+        <div class="form__input" *ngIf="formType === 'aux_bodega'">
+            <app-label [labelContent]="'Tipo de usuario'"></app-label>
+            <app-select (valueChange)="onUserRolChange($event)" formControlName="role"  [userType]="typeUser"></app-select>
         </div>
     </form>
+    <div class="ButtonDiv">
+        <app-button [size]="sizeButton" (buttonClick)="handleButtonClick()" [labelButton]="buttonTitle" ></app-button>
+    </div>
+
 </div>

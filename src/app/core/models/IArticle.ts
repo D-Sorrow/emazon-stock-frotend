@@ -5,5 +5,5 @@ export interface IArticle{
     stock?: number;
     price?: number;
     categories: number[];
-    brand?: string;
+    brand?: number;
 }

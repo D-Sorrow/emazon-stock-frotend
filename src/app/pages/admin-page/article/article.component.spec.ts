@@ -90,13 +90,14 @@ describe('ArticleComponent', () => {
   });
 
   it('should call saveData and add article', () => {
-    const dataFormMock: DataForm = {
-      name: 'New Article',
-      description: 'Description of article',
+    const dataFormMock: IArticle = {
+      nameArticle: 'Article Test',
+      descriptionArticle: 'Description Test',
+      stock: 10,
       price: 100,
-      quantity: 10,
-      categoryList: ['1'],
-    };
+      categories: [1, 2],
+      brand: 1
+    }
 
     component.saveData(dataFormMock);
     expect(articleService.addArticle).toHaveBeenCalled();

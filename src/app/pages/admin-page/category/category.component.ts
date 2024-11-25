@@ -6,6 +6,7 @@ import { Field } from 'src/app/shared/utils/Fields';
 import { DataForm } from 'src/app/shared/utils/DataForm';
 import { ICategory } from 'src/app/core/models/ICategory';
 import { CategoryService } from 'src/app/shared/service/category/category.service';
+import { ToastService } from 'src/app/shared/service/toast/toast.service';
 
 @Component({
   selector: 'app-category',
@@ -27,14 +28,14 @@ export class CategoryComponent implements OnInit {
   fields: Field[] = [
     {
       label: 'Nombre de la categoría',
-      formControlName: 'name',
+      formControlName: 'nameCategory',
       type: inputType.TEXT,
       placeholder: 'Ingresar el nombre de la categoría',
       validators: [Validators.required, Validators.maxLength(50)],
     },
     {
       label: 'Descripción de la categoría',
-      formControlName: 'description',
+      formControlName: 'descriptionCategory',
       type: inputType.TEXTAREA,
       placeholder: 'Ingresa la descripción de la categoría',
       validators: [Validators.required, Validators.maxLength(90)],
@@ -42,15 +43,20 @@ export class CategoryComponent implements OnInit {
   ];
 
 
-  constructor(private categoryService: CategoryService) { }
+  constructor(private categoryService: CategoryService, private toastService: ToastService) { }
 
   ngOnInit(): void {
     this.initTable();
   }
 
-  saveData(dataForm: DataForm): void  {
-    const category: ICategory = this.mapDataFormToCategory(dataForm);
-    this.categoryService.addCategory(category).subscribe(response => {
+  saveData(dataForm: ICategory): void  {
+    this.categoryService.addCategory(dataForm).subscribe({
+      next: (response) => {
+        this.toastService.showToast('Categoría agregada!', 'success');
+      },
+      error: (err) => {
+        this.toastService.showToast('Ups algo salió mal.', 'error');
+      },
     });
   }
 

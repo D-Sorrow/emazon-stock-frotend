@@ -3,6 +3,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { IBrand } from 'src/app/core/models/IBrand';
 import { Observable } from 'rxjs';
 import { IPageResponse } from 'src/app/core/models/IPageResponse';
+import { environment } from 'src/environments/environment';
+import { brand_const } from '../../const/brand.const';
 
 @Injectable({
   providedIn: 'root'
@@ -11,13 +13,10 @@ export class BrandService {
   
   brands: IBrand[] = [];
 
-  private apiStockUrl = 'http://localhost:8080/brand/';
-
-
   constructor(private http: HttpClient) { }
 
   addBrand(brandData: IBrand):Observable<IBrand>{
-    return this.http.post<IBrand>(this.apiStockUrl + "addBrand", brandData);
+    return this.http.post<IBrand>(environment.api_url_stock + brand_const.add_brand_url, brandData);
   }
 
   getAllBrands(page: number, sort: string): Observable<IPageResponse<IBrand>>{
@@ -26,6 +25,6 @@ export class BrandService {
       .set('size', 5)
       .set('sortDirection', sort);
 
-      return this.http.get<IPageResponse<IBrand>>(this.apiStockUrl + "getAllBrands", {params});
+      return this.http.get<IPageResponse<IBrand>>(environment.api_url_stock + brand_const.get_categories_url, {params});
   }
 }

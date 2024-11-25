@@ -6,6 +6,7 @@ import { inputType } from 'src/app/shared/enum/input-type.enum';
 import { BrandService } from 'src/app/shared/service/brand/brand.service';
 import { DataForm } from 'src/app/shared/utils/DataForm';
 import { Field } from 'src/app/shared/utils/Fields';
+import { ToastService } from 'src/app/shared/service/toast/toast.service';
 
 @Component({
   selector: 'app-brand',
@@ -28,21 +29,21 @@ export class BrandComponent implements OnInit {
   fields: Field[] = [
     {
       label: 'Nombre de la marca',
-      formControlName: 'name',
+      formControlName: 'brandName',
       type: inputType.TEXT,
       placeholder: 'Ingresa el nombre de la marca',
       validators: [Validators.required, Validators.maxLength(50)],
     },
     {
       label: 'Descripción de la marca',
-      formControlName: 'description',
+      formControlName: 'brandDescription',
       type: inputType.TEXTAREA,
       placeholder: 'Ingresa la descripción de la marca',
       validators: [Validators.required, Validators.maxLength(90)],
     },
   ];
 
-  constructor( private brandService: BrandService) { }
+  constructor( private brandService: BrandService, private toastService: ToastService) { }
 
   ngOnInit(): void {
     this.initTable();
@@ -55,9 +56,14 @@ export class BrandComponent implements OnInit {
     });
   }
 
-  saveData(dataForm: DataForm): void  {
-    const brand: IBrand = this.mapDataFormToBrand(dataForm);
-    this.brandService.addBrand(brand).subscribe(response => {
+  saveData(dataForm: IBrand): void  {
+    this.brandService.addBrand(dataForm).subscribe({
+      next: (response) => {
+        this.toastService.showToast('Marca agregada!', 'success');
+      },
+      error: (err) => {
+        this.toastService.showToast('Ups algo salió mal.', 'error');
+      },
     });
   }
 

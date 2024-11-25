@@ -21,6 +21,7 @@ import { SelectComponent } from './select/select.component';
   ],
   exports: [
     NavBarComponent,
+    ToastComponent,
     PaginationBarComponent,
     SelectComponent
   ]

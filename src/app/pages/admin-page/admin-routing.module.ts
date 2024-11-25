@@ -5,7 +5,7 @@ import { CategoryComponent } from './category/category.component';
 import { BrandComponent } from './brand/brand.component';
 import { ArticleComponent } from './article/article.component';
 import { ListArticlesComponent } from './list-articles/list-articles.component';
-import { AuxBodegaComponent } from './aux-bodega/aux-bodega.component';
+import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   {
@@ -30,7 +30,7 @@ const routes: Routes = [
       },
       {
         path:'usuario',
-        component: AuxBodegaComponent,
+        component: UserComponent,
       }
       
     ]

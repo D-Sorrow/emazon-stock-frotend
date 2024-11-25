@@ -1,9 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PaginationBarComponent } from './pagination-bar.component';
-import { By } from '@angular/platform-browser';
 import { faChevronCircleLeft, faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
 import { ComponentSize } from 'src/app/shared/enum/component-size.enum';
-import { EventEmitter } from '@angular/core';
 
 describe('PaginationBarComponent', () => {
   let component: PaginationBarComponent;

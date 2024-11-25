@@ -71,6 +71,15 @@ describe('CategoryComponent', () => {
     expect(component.pagesSize).toBe(2);
   });
 
+  it('should call saveData and use addCategory from categoryService', () => {
+    const mockCategory: ICategory = { nameCategory: 'Category 1', descriptionCategory: 'Description 1' };
+    jest.spyOn(categoryService, 'addCategory').mockReturnValue(of(mockCategory));
+
+    component.saveData(mockCategory);
+
+    expect(categoryService.addCategory).toHaveBeenCalledWith(mockCategory);
+  });
+
   it('should map data form to category correctly', () => {
     const dataForm = { name: 'Test Category', description: 'Test Description' };
     const mappedCategory = component.mapDataFormToCategory(dataForm);

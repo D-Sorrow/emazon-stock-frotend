@@ -84,17 +84,15 @@ describe('BrandComponent', () => {
 
   it('should call saveData and use addBrand from brandService', () => {
     const mockBrand: IBrand = { brandName: 'Brand Test', brandDescription: 'Description Test' };
-    const mockDataForm: DataForm = { name: 'Brand Test', description: 'Description Test' };
-
     jest.spyOn(brandService, 'addBrand').mockReturnValue(of(mockBrand));
 
-    component.saveData(mockDataForm);
+    component.saveData(mockBrand);
 
     expect(brandService.addBrand).toHaveBeenCalledWith(mockBrand);
   });
 
   it('should navigate to the next page', () => {
-    component.pagesSize = 3; // Simula tener más páginas
+    component.pagesSize = 3; 
     component.currentPage = 0;
 
     const mockBrandsResponse = {
@@ -112,6 +110,23 @@ describe('BrandComponent', () => {
     expect(component.currentPage).toBe(1);
     expect(brandService.getAllBrands).toHaveBeenCalledWith(1, 'asc');
   });
+
+  it('should call previousPage and decrement currentPage', () => {
+    component.currentPage = 1;
+
+    const mockBrandsResponse = {
+      collection: [
+        { brandName: 'Brand 1', brandDescription: 'Description 1' },
+        { brandName: 'Brand 2', brandDescription: 'Description 2' }
+      ],
+      pageSize: 2
+    };
+    jest.spyOn(brandService, 'getAllBrands').mockReturnValue(of(mockBrandsResponse as IPageResponse<IBrand>));
+
+    component.previousPage();
+    expect(component.currentPage).toBe(0);
+  });
+
 
   it('should toggle sortField between "asc" and "desc" and call brandService.getAllBrands', () => {
     const mockBrandsResponse = {

@@ -55,7 +55,7 @@ describe('ArticleService', () => {
             stock: 10,
             price: 100,
             categories: [1, 2],
-            brand: "1"
+            brand: 1
         };
 
         const page = 0;

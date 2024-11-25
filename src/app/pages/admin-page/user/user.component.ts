@@ -3,14 +3,16 @@ import { Validators } from '@angular/forms';
 import { inputType } from 'src/app/shared/enum/input-type.enum';
 import { Field } from 'src/app/shared/utils/Fields';
 import { FormType } from 'src/app/shared/enum/form-type.enum';
-import { DataForm } from 'src/app/shared/utils/DataForm';
+import { IUser } from 'src/app/core/models/IUser';
+import { UserService } from'src/app/shared/service/user/user.service';
+import { ToastService } from 'src/app/shared/service/toast/toast.service';
 
 @Component({
-  selector: 'app-aux-bodega',
-  templateUrl: './aux-bodega.component.html',
-  styleUrls: ['./aux-bodega.component.scss']
+  selector: 'app-user',
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.scss']
 })
-export class AuxBodegaComponent implements OnInit {
+export class UserComponent implements OnInit {
 
   formType: FormType = FormType.AUX_BODEGA;
 
@@ -64,13 +66,31 @@ export class AuxBodegaComponent implements OnInit {
       formControlName: 'userPassword',
       type: inputType.PASSWORD,
       placeholder: 'Ingresa la contraseña',
-      validators: [Validators.email],
+      validators: [Validators.required],
+    },
+    {
+      label: 'Tipo de usuario',
+      formControlName: 'role',
+      type: inputType.TEXT,
+      placeholder: 'Ingrese el tipo de usuario',
+      validators: [Validators.required],
     },
   ];
 
-  constructor() { }
+  constructor(private userService: UserService, private toastService: ToastService) { }
 
   ngOnInit(): void {
+  }
+
+  saveUser(user: IUser): void{
+    this.userService.addUser(user).subscribe({
+      next: (response) => {
+        this.toastService.showToast('Categoría agregada!', 'success');
+      },
+      error: (err) => {
+        this.toastService.showToast('Ups algo salió mal.', 'error');
+      },
+    });
   }
 
 }

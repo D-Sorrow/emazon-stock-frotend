@@ -16,8 +16,8 @@ describe('ListArticlesComponent', () => {
 
 
   const mockArticles: IArticle[] = [
-    { idArticle: 1, nameArticle: 'Article 1', descriptionArticle: 'Description 1', brand: '1' , categories: [1,2] },
-    { idArticle: 2, nameArticle: 'Article 2', descriptionArticle: 'Description 2', brand:'2' , categories: [3,4] },
+    { idArticle: 1, nameArticle: 'Article 1', descriptionArticle: 'Description 1', brand: 1 , categories: [1,2] },
+    { idArticle: 2, nameArticle: 'Article 2', descriptionArticle: 'Description 2', brand: 2 , categories: [3,4] },
   ];
 
   const mockResponse: IPageResponse<IArticle> = {
@@ -106,5 +106,25 @@ describe('ListArticlesComponent', () => {
     expect(component.sortBy).toBe('brand.brandName');
 
     expect(articleService.getAllArticles).toHaveBeenCalledWith(0, component.sortField, component.sortBy);
+  });
+  it('should toggle sortField back to asc and fetch sorted articles', () => {
+
+    jest.spyOn(articleService, 'getAllArticles').mockReturnValue(of(mockResponse));
+
+    component.currentPage = 0;
+    component.sortField = 'desc';
+    component.sortBy = 'nameArticle';
+
+    component.sortItem();
+
+    expect(component.sortField).toBe('asc');
+
+    expect(articleService.getAllArticles).toHaveBeenCalledWith(
+      0, 
+      'asc', 
+      'nameArticle' 
+    );
+
+    expect(component.articles).toEqual(mockResponse.collection);
   });
 });
